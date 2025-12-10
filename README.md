@@ -1,70 +1,68 @@
-# Getting Started with Create React App
+# Kahuna Labs Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A high-performance React application featuring complex scroll-based animations and a responsive design. This project uses a custom-built WebP sequence player to deliver smooth, app-like experiences on the web.
 
-## Available Scripts
+## 🚀 Key Features
 
-In the project directory, you can run:
+*   **High-Performance Scroll Animation**: Uses a highly optimized custom hook (`useWebPSequence`) that synchronizes frame playback with user scroll, minimizing React re-renders by ~99%.
+*   **Responsive Design**: distinct animation sequences and behaviors for Desktop and Mobile devices.
+*   **Smart Asset Loading**: Preloads critical assets to ensure smooth playback without buffering.
+*   **Centralized Configuration**: All animation parameters, routes, and content constants are managed in a dedicated `config` directory.
+*   **Deep Linking**: Support for sharing specific states of the animation via URL parameters (e.g., `/?ticket=2`).
 
-### `npm start`
+## 🛠 Project Structure
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```
+src/
+├── components/     # Reusable UI components
+│   ├── homepage/   # Components specific to the homepage (WebPSequence, VideoModal, etc.)
+│   └── common/     # Shared components (Header, Footer, Loader, etc.)
+├── config/         # Centralized configuration files
+│   ├── app/        # App-wide settings (routes, loader constants)
+│   └── homepage/   # Animation settings (frame counts, pause points, video links)
+├── hooks/          # Custom React hooks
+│   └── homepage/   # Logic for scroll handling, video modals, and sequence control
+├── pages/          # Page-level components (HomePage, Blog, etc.)
+└── utils/          # Helper functions and loggers
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## ⚙️ Configuration
 
-### `npm test`
+You can customize the application behavior by editing files in `src/config/`.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Animation & Homepage Settings
+**File:** `src/config/homepage/constants.js`
 
-### `npm run build`
+*   **Frame Counts**: Update `totalFramesDesktop` or `totalFramesMobile`.
+*   **Pause Points**: Add frame numbers to `pauseFramesDesktop` or `pauseFramesMobile` to stop the animation and show the "Play" icon.
+*   **Video Links**: Update `VIDEO_MAPPING` to change which video plays at each pause point.
+*   **Animation Speed**: Adjust `framesPerSecond`.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Routes
+**File:** `src/config/app/routes.js`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Add or remove pages from the `publicRoutes` or `protectedRoutes` arrays.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 📦 Getting Started
 
-### `npm run eject`
+1.  **Install dependencies**
+    ```bash
+    npm install
+    ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2.  **Start the development server**
+    ```bash
+    npm start
+    ```
+    Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3.  **Build for production**
+    ```bash
+    npm run build
+    ```
+    Builds the app for production to the `build` folder.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 🔧 Troubleshooting
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+*   **Animation Lag**: Ensure you are using optimized WebP images. Check `src/config/homepage/constants.js` to ensure frame counts match your asset folder.
+*   **Video Modal Issues**: Verify the video paths in `VIDEO_MAPPING` are correct and accessible in the `public/` folder.
