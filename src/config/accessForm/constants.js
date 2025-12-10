@@ -11,7 +11,7 @@ export const REDIRECT_STORAGE_KEY = 'documentRedirect';
 
 // Tally form configuration
 export const TALLY_CONFIG = {
-  SCRIPT_URL: 'https://tally.so/widgets/embed.js',
+  SCRIPT_URL: process.env.REACT_APP_TALLY_SCRIPT_URL || 'https://tally.so/widgets/embed.js',
   FORM_ID: process.env.REACT_APP_TALLY_FORM_ID || 'xXrVVr',
   TRANSPARENT_BACKGROUND: true,
   LOAD_TIMEOUT: 500, // Fallback timeout in milliseconds

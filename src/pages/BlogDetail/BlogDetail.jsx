@@ -16,7 +16,7 @@ const BlogDetail = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
 
-    const WORDPRESS_API_URL = "https://public-api.wordpress.com/rest/v1.1/sites/kahunalabs.blog/posts";
+    const WORDPRESS_API_URL = process.env.REACT_APP_WORDPRESS_API_URL || "https://public-api.wordpress.com/rest/v1.1/sites/kahunalabs.blog/posts";
 
     // Scroll to top when component mounts
     useEffect(() => {
