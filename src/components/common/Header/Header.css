@@ -1,0 +1,209 @@
+/* Header Styles */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: var(--z-index-fixed);
+    background-color: transparent;
+    padding: var(--spacing-md) var(--spacing-6xl);
+}
+
+/* Dynamic backdrop-filter based on page type */
+.main-header--blog,
+.main-header--about-us,
+.main-header--privacy-policy {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--color-border-transparent);
+}
+
+.header-container {
+    /* max-width: 1200px; */
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-logo img{
+    width: 164px;
+    height: 35px;
+    object-fit: contain;
+}
+
+.header-company-name {
+    font-size: 1.25rem;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    letter-spacing: -0.01em;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.header-cta-button {
+    background-color: #0632F9;
+    color: var(--color-text-primary);
+    border: none;
+    border-radius: var(--radius-md);
+    padding: 11px 19px;   
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-normal);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    font-family: var(--font-family-base);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.header-cta-button img {
+    width: 14px;
+    height: 14px;
+    object-fit: contain;
+    transition: filter 0.2s ease;
+}
+
+.header-cta-button:hover {
+    background-color: #0526BB;
+    color: var(--color-text-primary);
+    transform: translateY(-1px);
+}
+
+.header-cta-button:hover img {
+    filter: none;
+}
+
+.header-cta-button:active {
+    transform: translateY(0);
+}
+
+/* Header visibility is controlled by JavaScript */
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .main-header {
+        padding: 20px 0;
+    }
+
+    .header-container {
+        padding: 0 20px;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .header-left {
+        gap: 8px;
+    }
+
+    .header-logo {
+        width: 142px;
+        height: 28px;
+        flex-shrink: 0;
+    }
+
+    .header-logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .header-company-name {
+        font-size: 1rem;
+        font-weight: 600;
+        white-space: nowrap;
+    }
+
+    .header-cta-button {
+        padding: 8px 16px;
+        font-size: 11px;
+        font-weight: 400;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-header {
+        padding: 16px 20px;
+    }
+
+    .header-container {
+        padding: 0px;
+        min-width: 0;
+        /* Allow flex items to shrink */
+    }
+
+    .header-left {
+        gap: 6px;
+        min-width: 0;
+        /* Allow text to shrink */
+        flex: 1;
+        /* Take available space */
+    }
+
+    .header-logo {
+        width: 160px;
+        height: 35.07px;
+        flex-shrink: 0;
+    }
+
+    .header-company-name {
+        font-size: 0.9rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .header-right {
+        flex-shrink: 0;
+        /* Prevent button from shrinking */
+    }
+
+    .header-cta-button {
+        padding: 10px 13px;
+        font-size: 12px;
+    }
+
+    .header-cta-button img {
+        width: 12px;
+        height: 10px;
+    }
+}
+
+/* Extra small screens (320px and below) */
+@media (max-width: 320px) {
+    .header-container {
+        padding: 0 12px;
+    }
+
+    .header-company-name {
+        font-size: 0.8rem;
+    }
+
+    .header-cta-button {
+        padding: 5px 10px;
+        font-size: 9px;
+    }
+}
+

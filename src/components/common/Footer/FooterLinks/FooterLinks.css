@@ -1,0 +1,10 @@
+/* FooterLinks styles are inherited from Footer.css */
+/* This file is a placeholder for future component-specific styles */
+
+.footer-link sup {
+  font-size: 0.9em;
+  vertical-align: super;
+  line-height: 0;
+  margin-left: 2px;
+}
+

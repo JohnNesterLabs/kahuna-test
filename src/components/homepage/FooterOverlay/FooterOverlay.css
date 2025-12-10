@@ -1,0 +1,24 @@
+/* FooterOverlay Styles */
+.footer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 30;
+  background-color: #000;
+  overflow-y: auto;
+  transition: opacity 0.8s ease-in-out;
+}
+
+/* Visibility states */
+.footer-overlay--visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.footer-overlay--hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+

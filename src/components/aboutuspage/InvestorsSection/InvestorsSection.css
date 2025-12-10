@@ -1,0 +1,166 @@
+/* ========================================
+   Investors Section Styles
+======================================== */
+
+.investors {
+    position: relative;
+    width: var(--page-width);
+    height: 564px;
+    overflow: hidden;
+  }
+  
+  .investors__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-10);
+    /* width: var(--content-width); */
+    width: 100%;
+    padding: 0 100px;
+  }
+  
+  .investors__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .investors__tag {
+    font-family: var(--font-family-base);
+    font-weight: 500;
+    font-size: var(--font-size-lg);
+    line-height: 1;
+    color: var(--color-text-secondary);
+  }
+  
+  .investors__title {
+    font-family: var(--font-family-base);
+    font-weight: 500;
+    font-size: var(--font-size-4xl);
+    line-height: var(--line-height-snug);
+    color: var(--color-text-primary);
+    letter-spacing: var(--letter-spacing-hero);
+    margin: 0;
+  }
+  
+  .investors__logos {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 100px;
+  }
+  
+  .investors__logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  
+  .investor-logo {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .investor-logo--1 {
+    width: 236px;
+  }
+
+  .investor-logo--2 {
+    /* Add specific styles for investor 2 logo here */
+    width: 303px;
+  }
+
+  .investor-logo--3 {
+    /* Add specific styles for investor 3 logo here */
+    width: 327px;
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .investors {
+      height: 100vh;
+      min-height: auto;
+      padding: 40px 20px;
+    }
+
+    .investors__content {
+      height: 100%;
+      width: 100%;
+    }
+
+    .investors__header {
+      margin-bottom: 32px;
+    }
+
+    .investors__tag {
+      font-size: var(--font-size-base);
+    }
+
+    .investors__title {
+      font-size: var(--font-size-2xl);
+    }
+
+    .investors__logos {
+      flex-direction: column;
+      gap: 24px;
+      margin: 0;
+    }
+
+    .investors__logo-container {
+      padding: 16px;
+    }
+
+    .investor-logo--1,
+    .investor-logo--2,
+    .investor-logo--3 {
+      width: auto;
+      max-width: 200px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .investors {
+      height: 60vh;
+      padding: 32px 16px;
+    }
+
+    .investors__header {
+      margin-bottom: 24px;
+      gap: 8px;
+    }
+
+    .investors__tag {
+      font-size: var(--font-size-sm);
+    }
+
+    .investors__title {
+      font-size: var(--font-size-xl);
+    }
+
+    .investors__logos {
+      gap: 62px;
+    }
+
+    .investors__logo-container {
+      padding: 12px;
+    }
+
+    .investor-logo--1,
+    .investor-logo--2,
+    .investor-logo--3 {
+      max-width: 150px;
+    }
+  }
+
+  

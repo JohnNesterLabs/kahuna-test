@@ -1,0 +1,85 @@
+/* RelatedPosts Component Styles */
+
+.related-blogs-section {
+    max-width: 1200px;
+    margin: 40px auto 0;
+    padding-left: 0;
+    padding-right: 24px;
+    /* Align left edge with article-wrap content */
+    /* article-wrap is 860px max-width, centered, with 24px padding */
+    /* So content starts at: (100% - 860px) / 2 + 24px */
+    margin-left: calc((100% - 860px) / 2 + 24px);
+    position: relative;
+    z-index: 1;
+}
+
+.related-blogs-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 32px;
+    font-family: sans-serif;
+    text-align: left;
+}
+
+.related-blogs-carousel {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+    .related-blogs-carousel {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .related-blogs-section {
+        margin-left: 0;
+        padding-left: 24px;
+        padding-right: 24px;
+        margin-bottom: 60px;
+    }
+
+    .related-blogs-title {
+        font-size: 1.75rem;
+        margin-bottom: 24px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .related-blogs-carousel {
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 8px;
+        /* Hide scrollbar but keep functionality */
+        scrollbar-width: thin;
+        scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+    }
+
+    .related-blogs-carousel::-webkit-scrollbar {
+        height: 4px;
+    }
+
+    .related-blogs-carousel::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .related-blogs-carousel::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 2px;
+    }
+
+    /* Ensure proper spacing and hide overflow */
+    .related-blogs-carousel::after {
+        content: '';
+        flex: 0 0 24px;
+    }
+}

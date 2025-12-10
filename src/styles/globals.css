@@ -1,0 +1,317 @@
+@import '../fonts.css';
+@import './variables.css';
+
+body {
+    font-family: var(--font-family-base);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: var(--color-bg);
+}
+
+/* Mobile-only line break */
+.mobile-only {
+    display: none;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .mobile-only {
+        display: block;
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Remove mobile tap highlight globally for all links and buttons */
+a,
+button {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+}
+a:focus,
+button:focus {
+    outline: none;
+}
+
+/* Video Modal Styles */
+.video-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--color-overlay);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    backdrop-filter: blur(10px);
+}
+
+.video-modal-content {
+    position: relative;
+    background: var(--color-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.video-modal-close {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: white;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.video-modal-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+.video-modal-close svg {
+    width: 20px;
+    height: 20px;
+}
+
+.video-modal-video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.video-modal-video:hover {
+    opacity: 0.9;
+}
+
+/* Video Progress Bar Styles */
+.video-progress-bar {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    z-index: 1001;
+    transition: height 0.2s ease;
+    border-radius: 2px;
+}
+
+.video-progress-bar:hover {
+    height: 6px;
+}
+
+.video-progress-bar-fill {
+    height: 100%;
+    background-color: var(--color-button-secondary);
+    transition: width 0.1s linear;
+    position: relative;
+    border-radius: 2px;
+}
+
+.video-progress-bar-dot {
+    position: absolute;
+    right: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: var(--color-button-secondary);
+    border: 2px solid #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.video-progress-bar:hover .video-progress-bar-dot {
+    opacity: 1;
+}
+
+/* Section 1 Scroll Indicator */
+.section1-scroll-indicator {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 120;
+    transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+}
+
+.section1-scroll-indicator.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.section1-scroll-indicator .scroll-text {
+    font-family: var(--font-family-base);
+    font-size: 12.8px;
+    font-weight: 400;
+    letter-spacing: 0.3rem;
+    color: var(--color-text-primary);
+}
+
+.section1-scroll-indicator .scroll-arrow {
+    width: 14px;
+    height: 14px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    animation: arrowBounce 2s ease-in-out infinite;
+}
+
+@keyframes arrowBounce {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(4px);
+    }
+}
+
+/* Section 1 Scroll Overlay */
+.section1-scroll-overlay {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 110;
+    transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+}
+
+.section1-scroll-overlay.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Section Content Padding */
+.section-content-padding {
+    padding: 0 1rem;
+    z-index: 100;
+    background: transparent;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
+    max-width: 50%;
+    margin-left: 100px;
+}
+
+/* Mobile Responsive for section-content-padding */
+@media (max-width: 768px) {
+    .section-content-padding {
+        max-width: 90%;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-content-padding {
+        max-width: 100% !important;
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+        text-align: left !important;
+    }
+}
+
+@media (max-width: 320px) {
+    .section-content-padding {
+        max-width: 98%;
+        margin-left: 0.25rem;
+        margin-right: 0.25rem;
+    }
+}
+
+/* Video Modal Animations */
+.video-modal-overlay {
+    animation: fadeIn 0.3s ease-out;
+}
+
+.video-modal-content {
+    animation: scaleIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Mobile responsive video modal */
+@media (max-width: 768px) {
+    .video-modal-content {
+        width: 95% !important;
+        margin: 20px;
+    }
+}
+
+/* Spinner Animation - Used for navigation loaders */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

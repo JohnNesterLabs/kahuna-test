@@ -1,0 +1,113 @@
+.privacy-policy-page {
+  min-height: 100vh;
+  padding-top: 0;
+  background-color: #000000;
+  font-family: 'Prodigy Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: #ffffff;
+}
+
+.privacy-policy-container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.privacy-policy-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 165px 24px 165px;
+  background: radial-gradient(50% 100% at 50% 0%, #141A1E 0%, #000000 100%);
+  margin-bottom: 32px;
+}
+
+.privacy-policy-content {
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
+  color: #b3b3b3;
+  margin-bottom: 150px;
+}
+
+/* Content wrapper for the text sections to keep them centered and max-width */
+/* Note: Section styles are now handled by the Section component */
+
+.privacy-policy-header h1 {
+  font-size: 64px;
+  font-weight: 500;
+  color: #ffffff;
+  margin: 0 0 16px 0;
+  text-align: center;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.last-updated {
+  font-size: 16px;
+  color: #888888;
+  margin: 0;
+  text-align: center;
+  font-weight: 400;
+}
+
+.last-updated span {
+  color: #ffffff;
+}
+
+/* Section h2 styles are now handled by the Section component */
+
+.privacy-policy-content p {
+  font-size: 14px;
+  line-height: 1.24;
+  color: #898D8F;
+  margin: 0px;
+}
+
+.privacy-policy-content ul {
+  margin: 0px;
+  padding-left: 20px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Ensure lists inside sections respect the max-width of the section if they aren't direct children of .privacy-policy-content in the same way */
+.privacy-policy-content section ul {
+  padding-left: 20px;
+  margin: 0px;
+}
+
+.privacy-policy-content li {
+  font-size: 16px;
+  line-height: 1.24;
+  color: #898D8F;
+  margin: 0px;
+}
+
+.privacy-policy-content a {
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.privacy-policy-content a:hover {
+  color: #cccccc;
+}
+
+@media (max-width: 768px) {
+  .privacy-policy-header {
+    padding: 170px 20px 170px;
+    margin: 0px;
+  }
+
+  .privacy-policy-header h1 {
+    font-size: 40px;
+  }
+
+  .last-updated {
+    font-size: 14px;
+  }
+
+  /* Section styles are now handled by the Section component */
+}

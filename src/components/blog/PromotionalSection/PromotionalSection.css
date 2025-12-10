@@ -1,0 +1,11 @@
+/* PromotionalSection styles - uses existing classes from BlogListing.css */
+/* This file can be used for component-specific overrides if needed */
+
+/* CTA Button Icon */
+.promotional-cta-icon {
+  width: 14px;
+  height: 14px;
+  margin-left: 4px;
+  object-fit: contain;
+}
+
