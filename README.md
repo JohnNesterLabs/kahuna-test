@@ -61,8 +61,3 @@ Add or remove pages from the `publicRoutes` or `protectedRoutes` arrays.
     npm run build
     ```
     Builds the app for production to the `build` folder.
-
-## 🔧 Troubleshooting
-
-*   **Animation Lag**: Ensure you are using optimized WebP images. Check `src/config/homepage/constants.js` to ensure frame counts match your asset folder.
-*   **Video Modal Issues**: Verify the video paths in `VIDEO_MAPPING` are correct and accessible in the `public/` folder.
